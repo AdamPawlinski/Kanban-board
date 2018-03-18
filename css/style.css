@@ -1,0 +1,23 @@
+body {
+  font-size: 18px;
+  width: 800px;
+  margin: 50px auto;
+}
+#carousel {
+  margin: 50px auto;
+  height: 350px;
+  width: 500px;
+  overflow: hidden;
+  border: 5px;
+}
+#images {
+  width: 2500px;
+  height: 350px;
+  list-style: none;
+}
+#carousel ul li {
+  width: 500px;
+  height: 350px;
+  list-style: none;
+  float: left;
+}
