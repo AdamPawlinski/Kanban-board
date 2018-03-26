@@ -3,21 +3,59 @@ body {
   width: 800px;
   margin: 50px auto;
 }
-#carousel {
-  margin: 50px auto;
-  height: 350px;
-  width: 500px;
-  overflow: hidden;
-  border: 5px;
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
-#images {
-  width: 2500px;
-  height: 350px;
-  list-style: none;
+
+.board {
+  display: flex;
+  flex-direction: column;
 }
-#carousel ul li {
-  width: 500px;
-  height: 350px;
-  list-style: none;
-  float: left;
+
+.create-column {
+  display: flex;
+  flex-wrap: no-wrap;
+  min-height: 5vh;
+}
+
+.column-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.column-card-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.column-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.column-title {
+  min-height: 10vh;
+  margin-right: auto;
+}
+
+.btn-delete {
+  max-height: 3vh;
+}
+
+.add-card {
+  display: flex;
+  justify-content: flex-start;
 }
