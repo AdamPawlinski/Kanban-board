@@ -11,6 +11,10 @@ header {
   align-items: center;
 }
 
+li {
+  list-style: none;
+}
+
 .board {
   display: flex;
   flex-direction: column;
@@ -30,6 +34,8 @@ header {
 .column {
   display: flex;
   flex-direction: column;
+  margin: 5vh 5vh;
+  max-width: 25vh;
 }
 
 .column-card-list {
@@ -53,9 +59,22 @@ header {
 
 .btn-delete {
   max-height: 3vh;
+  align-self: flex-start;
+  justify-content: flex-end;
 }
 
 .add-card {
   display: flex;
   justify-content: flex-start;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.btn-delete-card {
+  max-height: 3vh;
+  justify-content: flex-end;
 }

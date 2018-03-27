@@ -26,7 +26,7 @@ $(function(){
           self.addCard(new Card(prompt("Enter the name of the card")));
       });
       $columnHeader.append($columnTitle)
-                  .append($columnDelete);
+                   .append($columnDelete);
       $column.append($columnHeader)
               .append($columnAddCard)
               .append($columnCardList);
@@ -49,7 +49,7 @@ $(function(){
     function createCard() {
       var $card = $('<li>').addClass('card');
       var $cardDescription = $('<p>').addClass('card-description').text(self.description);
-      var $cardDelete = $('<button>').addClass('btn-delete').text('x');
+      var $cardDelete = $('<button>').addClass('btn-delete-card').text('x');
       $cardDelete.click(function(){
           self.removeCard();
       });
