@@ -1,17 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Share+Tech|Ubuntu');
+
 body {
   font-size: 18px;
   width: 800px;
   margin: 50px auto;
+  background-color: #9b9b9b;
+  font-family: 'Ubuntu';
 }
 
-header {
+.kanban-header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  background-color: #2c3749;
+  max-height: 15vh;
+  color: #FFF;
+  padding: 3vh;
+  font-family: 'Share Tech';
+  font-size: 1.3em;
+  border-radius: 20px;
 }
 
-li {
+ul {
   list-style: none;
 }
 
@@ -34,8 +45,13 @@ li {
 .column {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   margin: 5vh 5vh;
   max-width: 25vh;
+  background-color: #6ff263;
+  border-radius: 3%;
+  box-shadow: 5px 5px grey;
+  padding: 3vh;
 }
 
 .column-card-list {
@@ -50,6 +66,7 @@ li {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  font-size: .9em;
 }
 
 .column-title {
@@ -61,20 +78,31 @@ li {
   max-height: 3vh;
   align-self: flex-start;
   justify-content: flex-end;
+  max-width: 3vh;
+  padding: 0 .5vh;
 }
 
 .add-card {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
+  max-width: 15vh;
+  padding: 0 2vh;
 }
 
 .card {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  background-color: #99f291;
+  border-radius: 3%;
+  padding: 2vh;
+  font-size: .7em;
+  width: 19vh;
+  margin-left: -6vh;
 }
 
 .btn-delete-card {
   max-height: 3vh;
   justify-content: flex-end;
+  max-width: 3vh;
 }

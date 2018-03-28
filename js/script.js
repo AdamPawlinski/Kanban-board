@@ -19,10 +19,10 @@ $(function(){
       var $columnCardList = $('<ul>').addClass('column-card-list');
       var $columnDelete = $('<button>').addClass('btn-delete').text('x');
       var $columnAddCard = $('<button>').addClass('add-card').text('Add a card');
-      $columnDelete.click(function() {
+      $columnDelete.on('click', function() {
           self.removeColumn();
       });
-      $columnAddCard.click(function() {
+      $columnAddCard.on('click', function() {
           self.addCard(new Card(prompt("Enter the name of the card")));
       });
       $columnHeader.append($columnTitle)
@@ -93,4 +93,8 @@ $(function(){
   var card2 = new Card('Create kanban boards');
   todoColumn.addCard(card1);
   doingColumn.addCard(card2);
+});
+
+document.getElementById("#colorPicker").addEventListener("input", function(event){
+     $('.column').css('background-color', event);
 });
