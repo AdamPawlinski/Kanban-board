@@ -26,6 +26,19 @@ ul {
   list-style: none;
 }
 
+button {
+  background-color: #FFF;
+  color: #000;
+  border: none;
+  box-shadow: 2px 2px grey;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #000;
+  color: #FFF;
+}
+
 .board {
   display: flex;
   flex-direction: column;
@@ -71,6 +84,7 @@ ul {
 
 .column-title {
   min-height: 10vh;
+  min-width: 15vh;
   margin-right: auto;
 }
 
@@ -85,8 +99,8 @@ ul {
 .add-card {
   display: flex;
   justify-content: center;
-  max-width: 15vh;
-  padding: 0 2vh;
+  min-width: 10vh;
+  padding: 1vh 1vh;
 }
 
 .card {

@@ -35,6 +35,9 @@ $(function(){
   }
   Column.prototype = {
     addCard: function(card){
+      if(card === null) {
+        return;
+      };
       this.$element.children('ul').append(card.$element);
     },
     removeColumn: function(){
@@ -80,6 +83,9 @@ $(function(){
   $('.create-column')
     .click(function(){
     	var name = prompt('Enter a column name');
+      if(name === null) {
+        return;
+      }
     	var column = new Column(name);
     	board.addColumn(column);
   });
@@ -95,6 +101,12 @@ $(function(){
   doingColumn.addCard(card2);
 });
 
-document.getElementById("#colorPicker").addEventListener("input", function(event){
-     $('.column').css('background-color', event);
+$('.column').on('click', function(event){
+  console.log('cos');
+  var color = $('#colorPicker').val();
+  $(event.target).css('background-color', color);
 });
+// document.getElementById("#colorPicker").addEventListener("change", function(){
+//     var color = this.val();
+//      $('.column').css('background-color', color);
+// });
