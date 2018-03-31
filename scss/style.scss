@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css?family=Share+Tech|Ubuntu');
+
+$font-main: 'Ubuntu', sans-serif;
+$font-header: 'Share Tech', sans-serif;
+$white: #FFF;
+$black: #000;
+$background: #9b9b9b;
+$background-header: #2c3749;
+$background-column: #6ff263;
+$background-card: #99f291;
+
+@mixin flex-direction($direction) {
+  -webkit-box-direction: $direction;
+      -ms-flex-direction: $direction;
+          flex-direction: $direction;
+}
+@mixin justify-content($justify) {
+  -webkit-box-pack: $justify;
+      -ms-flex-pack: $justify;
+          justify-content: $justify;
+}
+@mixin align-items($align) {
+-webkit-box-align: $align;
+    -ms-flex-align: $align;
+        align-items: $align;
+}
+
+@mixin flex-wrap($wrap) {
+  -ms-flex-wrap: $wrap;
+      flex-wrap: $wrap;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.row-center {
+  -webkit-box-orient: horizontal;
+  @include flex-direction(row);
+  @include align-items(center);
+}
+
+.button-del {
+  height: 3vh;
+  width: 3vh;
+  padding: 0 .5vh;
+}
+
+body {
+  font-size: 18px;
+  width: 800px;
+  margin: 50px auto;
+  background-color: $background;
+  font-family: 'Ubuntu';
+}
+
+ul {
+  list-style: none;
+}
+
+button,
+input {
+  background-color: $white;
+  color: $black;
+  border: none;
+  -webkit-box-shadow: 2px 2px $background;
+          box-shadow: 2px 2px $background;
+  border-radius: 5px;
+  margin: 0 2vh;
+}
+
+button:hover {
+  background-color: $black;
+  color: $white;
+}
+
+.kanban-header {
+  @extend .flex;
+  @extend .row-center;
+  @include justify-content(space-between);
+  background-color: $background-header;
+  max-height: 15vh;
+  color: $white;
+  padding: 3vh;
+  font-family: 'Share Tech';
+  font-size: 1.3em;
+  border-radius: 20px;
+}
+
+.header-nav {
+  @extend .flex;
+  @extend .row-center;
+  @include justify-content(flex-end);
+}
+
+.header-color {
+  @extend .flex;
+  @extend .row-center;
+  width: 20vh;
+  @include justify-content(center);
+  border: 1px solid $white;
+  border-radius: 5px;
+  padding: 1vh;
+  span {
+    font-size: .5em;
+  }
+}
+
+.board {
+  @extend .flex;
+  -webkit-box-orient: vertical;
+  @include flex-direction(column);
+}
+
+.create-column {
+  @extend .flex;
+  @include flex-wrap(no-wrap);
+  min-height: 5vh;
+}
+
+.column-container {
+  @extend .flex;
+  -webkit-box-orient: horizontal;
+  @include flex-direction(row);
+  @include flex-wrap(wrap);
+  @include justify-content(center);
+}
+
+.column {
+  @extend .flex;
+  -webkit-box-orient: vertical;
+  @include flex-direction(column);
+  @include justify-content(flex-start);
+  margin: 5vh 5vh;
+  min-width: 20vh;
+  background-color: $background-column;
+  border-radius: 3%;
+  -webkit-box-shadow: 5px 5px $background;
+          box-shadow: 5px 5px $background;
+  padding: 3vh;
+}
+
+.column-header {
+  @extend .flex;
+  @extend .row-center;
+  @include justify-content(space-between);
+  font-size: .9em;
+}
+
+.column-title {
+  min-height: 10vh;
+  min-width: 15vh;
+  margin-right: auto;
+}
+
+.column-card-list {
+  @extend .flex;
+  -webkit-box-orient: vertical;
+  @include flex-direction(column);
+  @include justify-content(center);
+  @include align-items(center);
+  padding-left: 0;
+}
+
+.card {
+  @extend .flex;
+  -webkit-box-orient: vertical;
+  @include flex-direction(column);
+  @include justify-content(flex-end);
+  background-color: $background-card;
+  border-radius: 3%;
+  padding: 2vh;
+  font-size: .7em;
+  width: 18vh;
+  margin: 0 2vh 2vh 2vh;
+  overflow-x: auto;
+}
+
+.btn-delete {
+  @extend .button-del;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  @include justify-content(flex-end);
+}
+
+.btn-delete-card {
+  @include justify-content(flex-end);
+  @extend .button-del;
+}
+
+.add-card {
+  @extend .flex;
+  @include justify-content(center);
+  min-width: 10vh;
+  padding: 1vh 1vh;
+}
+
+.card-placeholder {
+  border: 1.5px dotted $background;
+}

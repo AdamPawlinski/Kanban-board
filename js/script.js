@@ -7,6 +7,7 @@ $(function(){
     }
     return str;
   }
+
   function Column(name) {
     var self = this;
     this.id = randomString();
@@ -35,7 +36,7 @@ $(function(){
   }
   Column.prototype = {
     addCard: function(card){
-      if(card === null) {
+      if(card.$element === null) {
         return;
       };
       this.$element.children('ul').append(card.$element);
@@ -44,6 +45,7 @@ $(function(){
       this.$element.remove();
     }
   }
+
   function Card(description) {
 	  var self = this;
     this.id = randomString();
@@ -66,6 +68,7 @@ $(function(){
   		this.$element.remove();
     }
   }
+
   var board = {
     name: 'Kanban Board',
     addColumn: function(column) {
@@ -74,10 +77,13 @@ $(function(){
     },
     $element: $('#board .column-container')
   };
+
   function initSortable() {
    $('.column-card-list').sortable({
      connectWith: '.column-card-list',
-     placeholder: 'card-placeholder'
+     placeholder: 'card-placeholder',
+     dropOnEmpty: true,
+     forcePlaceholderSize: true
    }).disableSelection();
   }
   $('.create-column')
@@ -89,24 +95,25 @@ $(function(){
     	var column = new Column(name);
     	board.addColumn(column);
   });
+
   var todoColumn = new Column('To do');
   var doingColumn = new Column('Doing');
   var doneColumn = new Column('Done');
+  var card1 = new Card('New task');
+  var card2 = new Card('Create kanban boards');
   board.addColumn(todoColumn);
   board.addColumn(doingColumn);
   board.addColumn(doneColumn);
-  var card1 = new Card('New task');
-  var card2 = new Card('Create kanban boards');
   todoColumn.addCard(card1);
   doingColumn.addCard(card2);
-});
 
-$('.column').on('click', function(event){
-  console.log('cos');
-  var color = $('#colorPicker').val();
-  $(event.target).css('background-color', color);
+  // Changing card color by coloer picker in header
+  $('.card-description').on('click', function(event){
+    var color = $('#colorPicker').val();
+    $(event.target).parent().css('background-color', color);
+  });
+  $('.card').on('click', function(event){
+    var color = $('#colorPicker').val();
+    $(event.target).css('background-color', color);
+  });
 });
-// document.getElementById("#colorPicker").addEventListener("change", function(){
-//     var color = this.val();
-//      $('.column').css('background-color', color);
-// });

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <title>Kanban board</title>
@@ -10,8 +10,13 @@
 	<div id="board" class="board">
         <header class="kanban-header">
           <h1>Kanban board</h1>
-          <button class="create-column">Add a column</button>
-          <input type="color" id="colorPicker" value="">
+          <div class="header-nav">
+            <div class="header-color">
+              <span>choose a color and pick the card</span>
+              <input type="color" id="colorPicker" value="">
+            </div>
+            <button class="create-column">Add a column</button>
+          </div>
         </header>
         <div class="column-container"></div>
 	</div>
