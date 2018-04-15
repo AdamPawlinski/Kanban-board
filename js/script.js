@@ -108,11 +108,11 @@ $(function(){
   doingColumn.addCard(card2);
 
   // Changing card color by coloer picker in header
-  $('.card-description').on('click', function(event){
+  $(document).on('click', '.card-description', function(event){
     var color = $('#colorPicker').val();
     $(event.target).parent().css('background-color', color);
   });
-  $('.card').on('click', function(event){
+  $(document).on('click', '.card', function(event){
     var color = $('#colorPicker').val();
     $(event.target).css('background-color', color);
   });

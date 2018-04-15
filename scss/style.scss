@@ -162,6 +162,7 @@ button:hover {
   @include justify-content(center);
   @include align-items(center);
   padding-left: 0;
+  min-height: 20vh;
 }
 
 .card {
