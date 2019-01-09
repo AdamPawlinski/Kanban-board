@@ -1,4 +1,7 @@
 $(function(){
+
+  // generating column id number
+
   function randomString() {
     var chars = '0123456789abcdefghiklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXTZ';
     var str = '';
@@ -7,6 +10,8 @@ $(function(){
     }
     return str;
   }
+
+  //creating column
 
   function Column(name) {
     var self = this;
@@ -23,7 +28,7 @@ $(function(){
       $columnDelete.on('click', function() {
           self.removeColumn();
       });
-      $columnAddCard.on('click', function() {
+      $columnAddCard.on('click', function() {          
           self.addCard(new Card(prompt("Enter the name of the card")));
       });
       $columnHeader.append($columnTitle)
@@ -46,6 +51,8 @@ $(function(){
     }
   }
 
+  //creating card
+
   function Card(description) {
 	  var self = this;
     this.id = randomString();
@@ -54,11 +61,21 @@ $(function(){
     function createCard() {
       var $card = $('<li>').addClass('card');
       var $cardDescription = $('<p>').addClass('card-description').text(self.description);
+      var $cardButtons = $('<div>').addClass('card-buttons');
+      var $editCard = $('<button>').addClass('edit-card').text('edit');
       var $cardDelete = $('<button>').addClass('btn-delete-card').text('x');
+
       $cardDelete.click(function(){
-          self.removeCard();
+        self.removeCard();
       });
-      $card.append($cardDelete)
+      $editCard.on('click', function(event) { 
+        event.stopPropagation();       
+        $(this).parents('li').children('.card-description').text(prompt("Enter the name of the card"));
+      });
+
+      $cardButtons.append($editCard)
+                  .append($cardDelete);
+      $card.append($cardButtons)
       	   .append($cardDescription);
       return $card;
       }
@@ -78,6 +95,8 @@ $(function(){
     $element: $('#board .column-container')
   };
 
+  // function to enable sorting cards 
+
   function initSortable() {
    $('.column-card-list').sortable({
      connectWith: '.column-card-list',
@@ -86,6 +105,9 @@ $(function(){
      forcePlaceholderSize: true
    }).disableSelection();
   }
+  
+  // adding column
+
   $('.create-column')
     .click(function(){
     	var name = prompt('Enter a column name');
@@ -107,7 +129,8 @@ $(function(){
   todoColumn.addCard(card1);
   doingColumn.addCard(card2);
 
-  // Changing card color by color picker in header
+  // Changing card color by color picker
+
   $(document).on('click', '.card-description', function(event){
     var color = $('#colorPicker').val();
     $(event.target).parent().css('background-color', color);

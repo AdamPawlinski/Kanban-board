@@ -48,12 +48,6 @@ $box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
   @include align-items(center);
 }
 
-.button-del {
-  height: 3vh;
-  width: 3vh;
-  padding: 0 .5vh;
-}
-
 body {
   font-size: 18px;
   width: 800px;
@@ -73,12 +67,29 @@ input {
   color: $black;
   border: none;
   border-radius: 3%;
-  margin: 0 2vh;
+  margin: 0 .5vh;
 }
 
 button:hover {
   background-color: $black;
   color: $white;
+}
+
+.card-buttons {
+  @include justify-content(space-between);
+  display: inline;
+  flex-direction: row;
+}
+
+.edit-card {  
+  min-width: 5vh;
+  padding: 0 .5vh;  
+}
+
+.button-del {
+  min-height: 2vh;
+  min-width: 2vh;
+  padding: 0 .5vh;
 }
 
 .kanban-header {
