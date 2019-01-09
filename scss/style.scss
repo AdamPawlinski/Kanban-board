@@ -4,10 +4,11 @@ $font-main: 'Ubuntu', sans-serif;
 $font-header: 'Share Tech', sans-serif;
 $white: #FFF;
 $black: #000;
-$background: #9b9b9b;
-$background-header: #2c3749;
-$background-column: #6ff263;
-$background-card: #99f291;
+$background: #cacaca;
+$background-header: #e9ecf1;
+$background-opacity: rgba(0,0,0,.18);
+$background-card: rgb(164, 181, 236);
+$box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
 
 @mixin flex-direction($direction) {
   -webkit-box-direction: $direction;
@@ -28,6 +29,11 @@ $background-card: #99f291;
 @mixin flex-wrap($wrap) {
   -ms-flex-wrap: $wrap;
       flex-wrap: $wrap;
+}
+
+@mixin box-shadow($shadow) {
+  -webkit-box-shadow: $shadow;
+        box-shadow: $shadow;
 }
 
 .flex {
@@ -62,12 +68,11 @@ ul {
 
 button,
 input {
+  @include box-shadow($box-shadow);
   background-color: $white;
   color: $black;
   border: none;
-  -webkit-box-shadow: 2px 2px $background;
-          box-shadow: 2px 2px $background;
-  border-radius: 5px;
+  border-radius: 3%;
   margin: 0 2vh;
 }
 
@@ -80,9 +85,10 @@ button:hover {
   @extend .flex;
   @extend .row-center;
   @include justify-content(space-between);
-  background-color: $background-header;
+  @include box-shadow($box-shadow);
+  background-color: $background-header;  
   max-height: 15vh;
-  color: $white;
+  color: $black;
   padding: 3vh;
   font-family: 'Share Tech';
   font-size: 1.3em;
@@ -99,9 +105,9 @@ button:hover {
   @extend .flex;
   @extend .row-center;
   width: 20vh;
-  @include justify-content(center);
-  border: 1px solid $white;
+  @include justify-content(center); 
   border-radius: 5px;
+  background-color: $background-opacity;
   padding: 1vh;
   span {
     font-size: .5em;
@@ -133,12 +139,11 @@ button:hover {
   -webkit-box-orient: vertical;
   @include flex-direction(column);
   @include justify-content(flex-start);
+  @include box-shadow(inset $box-shadow);
   margin: 5vh 5vh;
-  min-width: 20vh;
-  background-color: $background-column;
-  border-radius: 3%;
-  -webkit-box-shadow: 5px 5px $background;
-          box-shadow: 5px 5px $background;
+  min-width: 25vh;    
+  border-radius: 2%;
+  background: $background-opacity; 
   padding: 3vh;
 }
 
@@ -170,12 +175,13 @@ button:hover {
   -webkit-box-orient: vertical;
   @include flex-direction(column);
   @include justify-content(flex-end);
-  background-color: $background-card;
+  @include box-shadow($box-shadow);
+  background-color: $background-card;  
   border-radius: 3%;
   padding: 2vh;
   font-size: .7em;
   width: 18vh;
-  margin: 0 2vh 2vh 2vh;
+  margin-bottom: 2vh;
   overflow-x: auto;
 }
 
@@ -199,5 +205,6 @@ button:hover {
 }
 
 .card-placeholder {
-  border: 1.5px dotted $background;
+  @include box-shadow(inset $box-shadow);
+  background: $background-opacity;  
 }
